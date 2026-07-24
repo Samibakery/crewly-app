@@ -41,3 +41,6 @@ Supabase → **Authentication → Sign In / Providers → Email** → slå **"Co
 
 ## Sikkerhed
 Kun den offentlige **publishable**-nøgle bruges (sikker i browseren pga. row-level security i databasen). Den hemmelige service_role-nøgle er IKKE i koden — og skal aldrig være det.
+
+
+Auto-deploy via Vercel aktiveret.
