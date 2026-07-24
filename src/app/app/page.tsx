@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { Logo } from "@/components/Logo";
@@ -113,7 +114,10 @@ export default async function AppPage({
                   key={o.id}
                   className="bg-white border border-line rounded-2xl p-4 shadow-sm"
                 >
-                  <div className="flex items-center gap-3">
+                  <Link
+                    href={`/app/${o.id}`}
+                    className="flex items-center gap-3 group"
+                  >
                     <span
                       className="w-11 h-11 rounded-xl grid place-items-center text-white font-bold"
                       style={{ background: "#3B76D1" }}
@@ -121,12 +125,14 @@ export default async function AppPage({
                       {o.name.charAt(0).toUpperCase()}
                     </span>
                     <div className="flex-1">
-                      <div className="font-semibold">{o.name}</div>
+                      <div className="font-semibold group-hover:text-brand transition">
+                        {o.name}
+                      </div>
                       <div className="text-xs text-[#7a8598]">
-                        Din arbejdsplads
+                        Åbn arbejdsplads →
                       </div>
                     </div>
-                  </div>
+                  </Link>
                   <OrgPayPeriodEditor
                     orgId={o.id}
                     type={o.ppType}
